@@ -1,30 +1,63 @@
 {
   "name": "maxprotz",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "lint-staged": {
+    "*.{js,jsx}": "eslint"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --colors --watch --public --mode development",
+    "build": "webpack --mode production"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "dependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "copy-webpack-plugin": "^4.5.4",
+    "css-loader": "^1.0.0",
+    "eslint": "4.19.0",
+    "eslint-config-airbnb": "17.0.0",
+    "eslint-import-resolver-webpack": "0.10.1",
+    "eslint-loader": "2.1.0",
+    "eslint-plugin-import": "2.12.0",
+    "eslint-plugin-jest": "21.22.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-jsx-control-statements": "2.2.1",
+    "eslint-plugin-react": "7.9.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^4.0.0-beta.2",
+    "jsxobj": "^1.1.0",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.7.2",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "resolve-url-loader": "^3.0.1",
+    "sass-loader": "^7.1.0",
+    "sass-resources-loader": "^2.0.0",
+    "superagent": "^4.1.0",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1",
+    "webpack-merge": "^4.1.5"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "author": "GoldenJack",
+  "license": "ISC",
   "devDependencies": {
-    "node-sass": "^4.11.0"
-  }
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "redux-devtools": "^3.4.2",
+    "redux-logger": "^3.0.6",
+    "remote-redux-devtools": "^0.5.13"
+  },
+  "proxy": "http://localhost:3000"
 }

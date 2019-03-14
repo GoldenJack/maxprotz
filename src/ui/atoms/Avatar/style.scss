@@ -1,0 +1,13 @@
+.avatar {
+  &--large {
+    width: 150px;
+  }
+
+  &--default {
+    width: 40px;
+  }
+
+  &--small {
+    width: 20px;
+  }
+}

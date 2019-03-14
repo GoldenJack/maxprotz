@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import * as serviceWorker from './serviceWorker';
-import Basic from './ui/templates/Basic';
-import './app.scss';
+import Basic from 'templates/Basic';
 
-import Home from './features/Home';
-import Login from './features/Login';
-import Profile from './features/Profile';
-// import NotFound from './features/NotFound';
+import Home from 'features/Home';
+import Login from 'features/Login';
+import Profile from 'features/Profile';
+// import NotFound from 'features/NotFound';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -19,11 +17,7 @@ ReactDOM.render(
         <Route path="/profile" component={Profile} />
         {/* <Route component={NotFound} /> */}
       </Basic>
-      
-      
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
 );
-
-serviceWorker.unregister();

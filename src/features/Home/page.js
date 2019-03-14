@@ -1,10 +1,12 @@
 import React from 'react';
 
+import News from 'organisms/News';
+
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
+    <News />
+  );
 };
 
 export default Home;
