@@ -1,0 +1,16 @@
+h1, h2, h3 ,h4, h5, h6 {
+  font-family: $ff;
+  color: $dark;
+}
+
+a, p, span, li {
+  font-family: $ff;
+  color: $main;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}

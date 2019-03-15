@@ -4,6 +4,7 @@
   &__title {
     font-size: 16px;
     line-height: 22px;
+    font-weight: bold;
     margin-bottom: 16px;
     white-space: nowrap;
     overflow: hidden;
@@ -12,6 +13,10 @@
 
   &__description {
     margin: 10px 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;  
   }
 
   &__image {
@@ -25,7 +30,7 @@
     width: 100%;
     padding: 5px 10px;
     font-size: 12px;
-    background: #fb6666;
+    background: $dpink;
     border-radius: 3px;
     text-decoration: none;
     color: white;
@@ -33,7 +38,7 @@
     transition: .3s;
     &:hover {
       border-radius: 5px;
-      background: #d23939;
+      background: $bpink;
     }
   }
 }

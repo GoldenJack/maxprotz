@@ -6,6 +6,7 @@ import './style.scss';
 const cn = bemHelper('novetly');
 
 const propTypes = {
+  mix: T.string,
   title: T.string.isRequired,
   description: T.string.isRequired,
   originalUrl: T.string.isRequired,
@@ -13,17 +14,19 @@ const propTypes = {
 };
 
 const defaultProps = {
+  mix: '',
   imageUrl: ''
 };
 
 const Novetly = ({
+  mix,
   title,
   description,
   originalUrl,
   imageUrl
 }) => {
   return (
-    <div {...cn()}>
+    <div {...cn('', '', mix)}>
       <h3 {...cn('title')}>{title}</h3>
       <img {...cn('image')} src={imageUrl} alt="/" />
       <p {...cn('description')}>{description}</p>

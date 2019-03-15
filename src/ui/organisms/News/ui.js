@@ -10,9 +10,9 @@ const cn = bemHelper('news');
 
 const News = () => {
   return (
-    <Wrapper mix={cn('wrapper')}>
+    <Wrapper mix={cn('wrapper').className}>
       {news && news.map(novetly => (
-        <Novetly key={novetly.title} {...novetly} />
+        <Novetly mix={cn('novetly').className} key={novetly.title} {...novetly} />
       ))}
     </Wrapper>
   );
