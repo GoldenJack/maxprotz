@@ -1,5 +1,3 @@
-webpack.common.js
-webpack.dev.js
-webpack.proxy.js
+webpack.config.js
 src/utils/bem-helper.js
 **/node_modules
