@@ -1,13 +1,16 @@
+/* eslint-disable react/self-closing-comp */
+/* eslint-disable react/jsx-indent */
 import React from 'react';
 // import T from 'prop-types';
 import { Link } from 'react-router-dom';
 import bemHelper from 'utils/bem-helper';
+import './style.scss';
 
-const cn = bemHelper('logo')
+const cn = bemHelper('logo');
 
 const Logo = mix => (
-  <Link to="/" {...cn('', mix)}>
-    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 75.352 75.351" space="preserve">
+  <Link to="/" {...cn('', '', mix)}>
+    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 75.352 75.351" space="preserve" fill="white">
     <g>
       <path d="M24.733,51.242c2.07,4.397,5.162,8.602,9.208,12.516c-8.026-1.172-14.841-5.933-18.798-12.616L24.733,51.242z
         M33.787,11.806c-7.736,1.168-14.37,5.719-18.35,12.118l9.299,0.102C26.78,19.716,29.826,15.614,33.787,11.806z M36.903,24.156
@@ -29,7 +32,8 @@ const Logo = mix => (
         c-0.707,0.393-1.674,0.584-2.924,0.57c-1.209-0.014-2.153-0.288-2.822-0.83c-0.677-0.536-1.023-1.296-1.056-2.298l-3.759-0.038
         c0.068,2.016,0.766,3.576,2.085,4.685c1.318,1.118,3.161,1.68,5.52,1.702c2.361,0.022,4.227-0.461,5.621-1.482
         c1.396-1.018,2.096-2.4,2.114-4.156C75.38,40.452,74.931,39.178,74.025,38.38z M36.482,63.422l0.131-12.054l-9.673-0.104
-        C29.113,55.539,32.312,59.631,36.482,63.422z"/>
+        C29.113,55.539,32.312,59.631,36.482,63.422z"
+      />
     </g>
     <g>
     </g>
@@ -62,6 +66,7 @@ const Logo = mix => (
     <g>
     </g>
     </svg>
+    <span {...cn('caption')}>max pro news</span>
   </Link>
 );
 

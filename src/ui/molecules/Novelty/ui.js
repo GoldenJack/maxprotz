@@ -8,7 +8,7 @@ const cn = bemHelper('novetly');
 const propTypes = {
   mix: T.string,
   title: T.string.isRequired,
-  description: T.string.isRequired,
+  shortDescription: T.string.isRequired,
   originalUrl: T.string.isRequired,
   imageUrl: T.string
 };
@@ -21,23 +21,19 @@ const defaultProps = {
 const Novetly = ({
   mix,
   title,
-  description,
-  originalUrl,
+  shortDescription,
   imageUrl
 }) => {
   return (
-    <div {...cn('', '', mix)}>
-      <h3 {...cn('title')}>{title}</h3>
-      <img {...cn('image')} src={imageUrl} alt="/" />
-      <p {...cn('description')}>{description}</p>
-      <a
-        href={originalUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        {...cn('original-url')}
-      >
-        Оригинальный источник
-      </a>
+    <div className={mix}>
+      <div {...cn()}>
+        <img {...cn('image')} src={imageUrl} alt="/" />
+        <div {...cn('data')}>
+          <h3 {...cn('title')}>{title}</h3>
+          {/* eslint-disable-next-line react/no-danger */}
+          <p {...cn('description')} dangerouslySetInnerHTML={{ __html: shortDescription }} />
+        </div>
+      </div>
     </div>
   );
 };

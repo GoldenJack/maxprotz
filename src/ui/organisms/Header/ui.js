@@ -11,13 +11,15 @@ const cn = bemHelper('header');
 
 const Header = () => {
   return (
-    <Wrapper mix={cn('wrapper').className}>
-      <Fragment>
-        <Logo mix={cn('logo').className} />
+    <div {...cn()}>
+      <Wrapper mix={cn('wrapper').className}>
+        <Fragment>
+          <Logo mix={cn('logo').className} />
 
-        <Avatar mix={cn('user').className} size="default" />
-      </Fragment>
-    </Wrapper>
+          <Avatar mix={cn('user').className} size="default" />
+        </Fragment>
+      </Wrapper>
+    </div>
   );
 };
 

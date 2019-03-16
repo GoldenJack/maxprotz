@@ -1,44 +1,33 @@
 .novetly {
-  width: calc(100% / 3);
-
-  &__title {
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: bold;
-    margin-bottom: 16px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  &__description {
-    margin: 10px 0;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;  
-  }
+  width: 100%;
+  border: 1px solid #ebebeb;
+  border-bottom: 5px solid #2eb398;
+  background-color:  #ffffff;
 
   &__image {
     width: 100%;
   }
 
-  &__original-url {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 5px 10px;
-    font-size: 12px;
-    background: $dpink;
-    border-radius: 3px;
-    text-decoration: none;
-    color: white;
-    text-transform: uppercase;
-    transition: .3s;
-    &:hover {
-      border-radius: 5px;
-      background: $bpink;
-    }
+  &__data {
+    padding: 30px;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    color:  #313131;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+
+  &__description {
+    color:  #626262;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;  
   }
 }
