@@ -12,6 +12,10 @@ html, body {
   height: 100%;
 }
 
+#root {
+  min-height: 100%;
+}
+
 @import './modules/vars';
 @import './modules/form';
 @import './modules/type';

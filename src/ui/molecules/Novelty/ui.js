@@ -27,7 +27,9 @@ const Novetly = ({
   return (
     <div className={mix}>
       <div {...cn()}>
-        <img {...cn('image')} src={imageUrl} alt="/" />
+        <div {...cn('image-wrap')}>
+          <img {...cn('image')} src={imageUrl} alt="/" />
+        </div>
         <div {...cn('data')}>
           <h3 {...cn('title')}>{title}</h3>
           {/* eslint-disable-next-line react/no-danger */}

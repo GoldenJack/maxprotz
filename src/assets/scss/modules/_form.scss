@@ -2,3 +2,11 @@ input, select, textarea {
   outline: none;
   padding: 5px;
 };
+
+button {
+  outline: none;
+}
+
+button, a {
+  cursor: pointer;
+}

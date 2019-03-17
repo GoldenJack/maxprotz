@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import Masonry from 'masonry-layout';
 import { news } from 'data/news';
+import imagesLoaded from 'imagesloaded';
 import bemHelper from 'utils/bem-helper';
 import './style.scss';
 
@@ -14,12 +15,14 @@ const News = () => {
 
   useEffect(() => {
     if (newsRef.current) {
-      const msnry = new Masonry(newsRef.current, {
-        itemSelector: '.news__novetly',
-        columnWidth: '.news__novetly'
+      imagesLoaded(newsRef.current, () => {
+        return new Masonry(newsRef.current, {
+          itemSelector: '.news__novetly',
+          columnWidth: '.news__novetly'
+        });
       });
     }
-  }, [Masonry, newsRef]);
+  }, [newsRef]);
 
   return (
     <Wrapper mix={cn('wrapper').className}>

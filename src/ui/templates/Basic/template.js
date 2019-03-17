@@ -14,12 +14,12 @@ const Basic = ({
   children
 }) => {
   const [theme, setTheme] = useState('basic');
-  const toggleTheme = () => {
-    theme === 'basic' ? setTheme('night') : setTheme('basic');
-  };
+  // const toggleTheme = () => {
+  //   theme === 'basic' ? setTheme('night') : setTheme('basic');
+  // };
 
   return (
-    <div {...cn('', theme)} onClick={toggleTheme} role="none">
+    <div {...cn('', theme)} role="none">
       <Header />
       {children}
     </div>

@@ -17,7 +17,7 @@
   "settings": {
     "import/resolver": {
       "webpack": {
-        "config": "webpack.common.js"
+        "config": "webpack.config.js"
       }
     }
   },
@@ -107,6 +107,5 @@
     "jsx-control-statements/jsx-use-if-tag": 0,
     "jsx-control-statements/jsx-when-require-condition": 1,
     "jsx-control-statements/jsx-jcs-no-undef": 1
-    // "no-undef": 0 // Replace this with jsx-jcs-no-undef
   }
 }

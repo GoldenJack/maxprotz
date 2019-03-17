@@ -54,7 +54,10 @@
   "author": "GoldenJack",
   "license": "ISC",
   "devDependencies": {
+    "imagesloaded": "^4.1.4",
+    "install": "^0.12.2",
     "masonry-layout": "^4.2.2",
+    "npm": "^6.9.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "redux-devtools": "^3.4.2",

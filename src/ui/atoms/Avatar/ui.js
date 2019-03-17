@@ -17,10 +17,11 @@ const defaultProps = {
 
 const Avatar = ({
   mix,
-  size
+  size,
+  onClick
 }) => {
   return (
-    <img {...cn('', size, mix)} src="img/user.svg" alt="/" />
+    <img {...cn('', size, mix)} src="img/user.svg" alt="/" onClick={onClick} role="none" />
   );
 };
 
