@@ -21,7 +21,7 @@ const Client = ({
   };
 
   return (
-    <div {...cn('', visible ? 'open' : '')}>
+    <div {...cn('', visible ? 'open' : 'close')}>
       <div {...cn('caption')}>
         <Link to="/profile" {...cn('name')}>
           <Avatar size="small" mix={cn('avatar').className} />

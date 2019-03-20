@@ -99,6 +99,7 @@ module.exports = {
       features: path.resolve(__dirname, './src/features'),
       utils: path.resolve(__dirname, './src/utils'),
       data: path.resolve(__dirname, './src/data'),
+      HOC: path.resolve(__dirname, './src/HOC'),
     }
   },
   devtool: 'source-map',

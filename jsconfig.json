@@ -11,7 +11,8 @@
         "features/*": ["src/features/*"],
         "utils/*": ["src/utils/*"],
         "config": ["config"],
-        "hooks": ["src/hooks"]
+        "hooks": ["src/hooks"],
+        "HOC": ["src/HOC"],
       }
     },
     "exclude": ["node_modules", "dist"]

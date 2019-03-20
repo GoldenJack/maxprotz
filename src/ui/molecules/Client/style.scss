@@ -1,5 +1,4 @@
 .client {
-  display: none;
   position: absolute;
   flex-flow: column;
   background: #fff;
@@ -9,7 +8,12 @@
   width: 300px;
   z-index: 999;
   &--open {
-    display: flex;
+    -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	          animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  &--close {
+    -webkit-animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+            animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   }
 
   &__caption {
@@ -40,5 +44,11 @@
     display: flex;
     cursor: pointer;
     align-items: center;
+  }
+}
+
+@keyframes open {
+  0% {
+    
   }
 }
