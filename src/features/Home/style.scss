@@ -5,6 +5,11 @@
     padding: 40px 0;
   }
 
+  &__title {
+    padding: 0 15px;
+    margin-bottom: 24px;
+  }
+
   &__row {
     display: flex;
     align-items: flex-start;

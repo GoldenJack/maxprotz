@@ -1,5 +1,4 @@
 import React, { useState, Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import bemHelper from 'utils/bem-helper';
 import './style.scss';
 

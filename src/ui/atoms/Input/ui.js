@@ -25,7 +25,8 @@ const Input = ({
   value,
   label,
   onChange,
-  error
+  error,
+  ...props
 }) => {
   const [focused, setFocused] = useState(false);
 
@@ -43,6 +44,7 @@ const Input = ({
         onChange={onFieldChange}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
+        {...props}
       />
       <span {...cn('error-msg')}>{error}</span>
     </div>

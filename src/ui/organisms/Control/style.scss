@@ -1,0 +1,122 @@
+.control {
+  position: fixed;
+  top: calc(100vh / 2 - 227px);
+  animation: close .3s ease-in-out both;
+
+  &--open {
+    right: 0;
+    animation: open .3s ease-in-out both;
+  }
+
+  &__button-toggle {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: calc(100% + 20px);
+    width: 40px;
+    height: 40px;
+    background: $white;
+    box-shadow: -6px 0px 37px 3px #cecece;
+    cursor: pointer;
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__body {
+    width: 300px;
+    min-height: 100%;
+    height: auto;
+    background: #f3f3f3;
+    box-shadow: 20px 0px 40px -10px #4e4e4e;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 5px;
+    background: #262626;
+  }
+
+  &__caption {
+    color: $white;
+  }
+
+  &__search-input {
+    margin-bottom: 20px;
+    input {
+      padding: 15px;
+      border: none;
+      border-bottom: 1px solid #262626;
+      font-size: 15px;
+    }
+  }
+
+  &__tags-filter {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 10px 20px;
+  }
+  
+  &__tag {
+    margin: 5px;
+    padding: 3px 8px;
+    border: 1px solid #598ffe;
+    border-radius: 10px;
+    color: #598ffe;
+    cursor: pointer;
+    &--active {
+      background: #598ffe;
+      border-color: #598ffe;
+      color: $white;
+    }
+  }
+
+  &__clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__clear-button {
+    padding: 10px 16px;
+    width: 100%;
+    color: #fff;
+    background-color: #446CB3;
+    font-family: $ff;
+    font-size: 13px;
+    font-weight: 300;
+    border-width: 0;
+    border-radius: 0;
+    text-transform: uppercase;
+    -webkit-transition: all 0.2s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    -moz-transition: all 0.2s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    -ms-transition: all 0.2s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    transition: all 0.2s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+    &:hover {
+      background-color: #222;
+      color: #fff;
+    }
+  }
+}
+
+@keyframes open {
+  0% {
+    right: -300px;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes close {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: -300px;
+  }
+}
