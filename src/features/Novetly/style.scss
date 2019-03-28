@@ -1,0 +1,28 @@
+.novetly-page {
+
+  &__wrapper {
+    padding: 40px 0;
+  }
+
+  &__image {
+    display: block;
+    max-width: 290px;
+    margin: 0 24px 0 0;
+    @media screen and (max-width: 768px) {
+      max-width: 100%;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__description {
+    p {
+      font-size: 15px;
+      line-height: 20px;
+      margin-bottom: 20px;
+    }
+    @media screen and (max-width: 768px) {
+      padding: 0 15px;
+    }
+  }
+}

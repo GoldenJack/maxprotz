@@ -6,6 +6,7 @@ import Layout from 'features/Layout';
 import Home from 'features/Home';
 import Login from 'features/Login';
 import Profile from 'features/Profile';
+import Novetly from 'features/Novetly';
 // import NotFound from 'features/NotFound';
 
 ReactDOM.render(
@@ -15,6 +16,7 @@ ReactDOM.render(
       <Layout>
         <Route exact path="/" component={Home} />
         <Route path="/profile" component={Profile} />
+        <Route path="/news/:id" component={Novetly} />
         {/* <Route component={NotFound} /> */}
       </Layout>
     </Switch>

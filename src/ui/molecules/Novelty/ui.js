@@ -1,5 +1,6 @@
 import React from 'react';
 import T from 'prop-types';
+import { Link } from 'react-router-dom';
 import bemHelper from 'utils/bem-helper';
 import './style.scss';
 
@@ -20,8 +21,10 @@ const defaultProps = {
 
 const Novetly = ({
   mix,
+  id,
   title,
   shortDescription,
+  originalUrl,
   imageUrl
 }) => {
   return (
@@ -29,11 +32,20 @@ const Novetly = ({
       <div {...cn()}>
         <div {...cn('image-wrap')}>
           <img {...cn('image')} src={imageUrl} alt="/" />
+          <span {...cn('wrap-original')}>
+            <a
+              {...cn('link-original')}
+              href={originalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Перейти к оригиналу
+            </a>
+          </span>
         </div>
         <div {...cn('data')}>
-          <h3 {...cn('title')}>{title}</h3>
-          {/* eslint-disable-next-line react/no-danger */}
-          <p {...cn('description')} dangerouslySetInnerHTML={{ __html: shortDescription }} />
+          <Link to={`/news/${id}`} {...cn('title')}>{title}</Link>
+          <p {...cn('description')}>{ shortDescription }</p>
         </div>
       </div>
     </div>

@@ -100,6 +100,7 @@ module.exports = {
       utils: path.resolve(__dirname, './src/utils'),
       data: path.resolve(__dirname, './src/data'),
       HOC: path.resolve(__dirname, './src/HOC'),
+      hooks: path.resolve(__dirname, './src/hooks'),
     }
   },
   devtool: 'source-map',
