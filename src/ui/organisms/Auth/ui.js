@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { withValidate } from 'HOC';
 import { user as userData } from 'data/user';
 import { _required, _match } from 'utils/validate';
 import { isEmpty } from 'utils/helper';
+import { useAnimation } from 'hooks';
 import T from 'prop-types';
 import bemHelper from 'utils/bem-helper';
 import './style.scss';
@@ -41,7 +42,12 @@ const Auth = ({
   handleSubmit,
   errors
 }) => {
-  const [animation, setAnimation] = useState('');
+  const animation = useAnimation({
+    opening: true,
+    error: !isEmpty(errors)
+  });
+
+  console.log('animation: =>>>', animation)
 
   const onSubmit = () => {
     localStorage.setItem('user', JSON.stringify({
@@ -51,16 +57,8 @@ const Auth = ({
     history.push('/');
   };
 
-  useEffect(() => {
-    !isEmpty(errors) && setAnimation('has-error');
-  }, [errors]);
-
-  useEffect(() => {
-    setTimeout(() => setAnimation(''), 1000);
-  }, [animation]);
-
   return (
-    <div {...cn('', isEmpty(errors) && animation, mix)}>
+    <div {...cn('', animation, mix)}>
       <legend {...cn('caption')}>Авторизация</legend>
       <Form mix={cn('form').className} onSubmit={handleSubmit(onSubmit)}>
         <Input

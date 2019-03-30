@@ -8,6 +8,11 @@
   background-size: cover;
   min-height: 250px;
 
+  &--animation-opening {
+    -webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	          animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+
   &__overlay {
     position: absolute;
     top: 0;
@@ -26,5 +31,9 @@
     line-height: 48px;
     z-index: 9999;
     text-align: center;
+    @media screen and (max-width: 768px) {
+      font-size: 18px;
+      line-height: 22px;
+    }
   }
 }

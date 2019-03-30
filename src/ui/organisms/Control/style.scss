@@ -1,11 +1,15 @@
 .control {
   position: fixed;
   top: calc(100vh / 2 - 227px);
-  animation: close .3s ease-in-out both;
+  right: -300px;
 
-  &--open {
+  &--animation-open {
     right: 0;
     animation: open .3s ease-in-out both;
+  }
+
+  &--animation-close {
+    animation: close .3s ease-in-out both;
   }
 
   &__button-toggle {

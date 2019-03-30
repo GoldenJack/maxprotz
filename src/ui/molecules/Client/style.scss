@@ -5,13 +5,15 @@
   box-shadow: -1px 3px 2px 1px #e4e4e4;
   top: 100%;
   right: 0;
+  opacity: 0;
   width: 300px;
   z-index: 999;
-  &--open {
+  transform: translateX(1000px);
+  &--animation-open {
     -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	          animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
-  &--close {
+  &--animation-close {
     -webkit-animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
             animation: slide-out-right 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
   }

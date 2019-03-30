@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import T from 'prop-types';
-import { useNovetly } from 'hooks';
+import { useNovetly, useAnimation } from 'hooks';
 import bemHelper from 'utils/bem-helper';
 import './style.scss';
 
@@ -17,13 +17,19 @@ const Novetly = ({
   match: { params: { id } }
 }) => {
   const { novetly: { title, imageUrl, description } } = useNovetly(id);
+  const animation = useAnimation({
+    opening: true
+  });
+
   return (
     <Fragment>
       <Banner mix={cn('banner').className} title={title} image={imageUrl} />
       <Wrapper mix={cn('wrapper').className}>
-        <img {...cn('image')} src={imageUrl} alt="/" align="left" />
-        {/* eslint-disable-next-line react/no-danger */}
-        <div {...cn('description')} dangerouslySetInnerHTML={{ __html: description }} />
+        <div {...cn('', animation)}>
+          <img {...cn('image')} src={imageUrl} alt="/" align="left" />
+          {/* eslint-disable-next-line react/no-danger */}
+          <div {...cn('description')} dangerouslySetInnerHTML={{ __html: description }} />
+        </div>
       </Wrapper>
     </Fragment>
   );

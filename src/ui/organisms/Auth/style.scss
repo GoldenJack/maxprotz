@@ -13,9 +13,13 @@
   -ms-box-shadow: 0 2px 12px -3px rgba(0, 0, 0, 0.6);
   box-shadow: 0 2px 12px -3px rgba(0, 0, 0, 0.6);
   padding: 20px 25px;
-  &--has-error {
+  &--animation-errors {
     -webkit-animation: shake 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 	          animation: shake 0.7s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+  }
+  &--animation-opening {
+    -webkit-animation: bounce-in-top 1s both;
+            animation: bounce-in-top 1s both;
   }
 
   &__caption {

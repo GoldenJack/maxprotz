@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import T from 'prop-types';
+import { useAnimation } from 'hooks';
 import bemHelper from 'utils/bem-helper';
 import './style.scss';
 
@@ -8,7 +9,10 @@ import Input from 'atoms/Input';
 const cn = bemHelper('control');
 
 const propTypes = {
-  tags: T.array.isRequired,
+  tags: T.oneOfType([
+    T.object,
+    T.array
+  ]).isRequired,
   toggleTag: T.func.isRequired,
   searchValue: T.string.isRequired,
   onChangeSearch: T.func.isRequired,
@@ -22,10 +26,15 @@ const Control = ({
   onChangeSearch,
   onClear
 }) => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(null);
+  const animation = useAnimation({
+    toggle: visible
+  });
 
   const toggleVisible = () => {
-    setVisible(!visible);
+    visible === null
+      ? setVisible(true)
+      : setVisible(!visible);
   };
 
   const onClearControl = () => {
@@ -51,9 +60,9 @@ const Control = ({
   };
 
   return (
-    <div {...cn('', visible && 'open')}>
+    <div {...cn('', animation)}>
       <span {...cn('button-toggle')} onClick={toggleVisible} role="none">
-        <img src={visible ? 'img/close.svg' : 'img/settings.svg'} alt="O" />
+        <img src="img/settings.svg" alt="O" />
       </span>
       <div {...cn('body')}>
         <div {...cn('header')}>

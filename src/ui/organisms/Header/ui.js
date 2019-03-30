@@ -10,7 +10,7 @@ import Client from 'molecules/Client';
 const cn = bemHelper('header');
 
 const Header = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(null);
 
   return (
     <div {...cn()}>
