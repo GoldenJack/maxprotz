@@ -101,6 +101,7 @@ module.exports = {
       data: path.resolve(__dirname, './src/data'),
       HOC: path.resolve(__dirname, './src/HOC'),
       hooks: path.resolve(__dirname, './src/hooks'),
+      context: path.resolve(__dirname, './src/context'),
     }
   },
   devtool: 'source-map',

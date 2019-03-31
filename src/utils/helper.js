@@ -1,10 +1,10 @@
 /**
  * @public
- * @param {Object} arr: Check for the presence of something in the object
+ * @param {Object} obj: Check for the presence of something in the object
  * Returns boolean
  */
-export const isEmpty = arr => {
-  return Object.keys(arr).length === 0;
+export const isEmpty = obj => {
+  return Object.keys(obj).length === 0;
 };
 
 

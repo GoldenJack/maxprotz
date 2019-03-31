@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { withValidate } from 'HOC';
-import { user as userData } from 'data/user';
-import { _required, _match } from 'utils/validate';
+import { _required } from 'utils/validate';
 import { isEmpty } from 'utils/helper';
 import { useAnimation } from 'hooks';
+import { Authorization } from 'context';
 import T from 'prop-types';
 import bemHelper from 'utils/bem-helper';
 import './style.scss';
@@ -21,12 +21,9 @@ const defaultProps = {
   mix: ''
 };
 
-const logins = userData.map(({ login }) => login);
-const passwords = userData.map(({ password }) => password);
-
 const validateFields = {
-  login: [_required, _match(logins, 'Пользователь с таким именем не найден')],
-  password: [_required, _match(passwords, 'Неверный пароль')]
+  login: [_required],
+  password: [_required]
 };
 
 const stateFields = {
@@ -40,21 +37,25 @@ const Auth = ({
   fields,
   onFieldChange,
   handleSubmit,
+  pushErrorsFromServer,
   errors
 }) => {
+  const { validateAuthUser, setCurrentUser } = useContext(Authorization);
+
   const animation = useAnimation({
     opening: true,
     error: !isEmpty(errors)
   });
 
-  console.log('animation: =>>>', animation)
-
   const onSubmit = () => {
-    localStorage.setItem('user', JSON.stringify({
-      login: fields.login,
-      password: fields.password
-    }));
-    history.push('/');
+    const immitationFetchRequest = validateAuthUser(fields);
+    if (immitationFetchRequest.statusCode !== 200) {
+      pushErrorsFromServer(immitationFetchRequest.errors);
+    } else {
+      setCurrentUser(immitationFetchRequest.body);
+      localStorage.setItem('user', immitationFetchRequest.body.login);
+      history.push('/');
+    }
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import { isEmpty } from 'utils/helper';
 
 export const withValidate = (WrappedComponent, {
@@ -7,7 +7,6 @@ export const withValidate = (WrappedComponent, {
 }) => ({ ...wrappedComponentProps }) => {
   const [fields, setFields] = useState(stateFields);
   const [errors, setErrors] = useState({});
-  const [allowed, setAllowed] = useState(false);
 
   const onFieldChange = fieldName => value => {
     if (!(fieldName in fields)) return;
@@ -21,7 +20,7 @@ export const withValidate = (WrappedComponent, {
     }, null);
   };
 
-  const _validate = cb => {
+  const _validate = () => {
     const validations = Object.keys(validateFields);
     const validateErrors = {};
     validations.map(validateKey => {
@@ -30,13 +29,18 @@ export const withValidate = (WrappedComponent, {
       if (validateError !== null) validateErrors[validateKey] = validateError;
       return null;
     });
-    isEmpty(validateErrors) && cb();
     setErrors(validateErrors);
+    return Promise.resolve(validateErrors);
   };
 
   const handleSubmit = onSubmit => e => {
     e.preventDefault();
-    _validate(onSubmit);
+    _validate(onSubmit)
+      .then(err => isEmpty(err) && onSubmit());
+  };
+
+  const pushErrorsFromServer = (errorsFromServer = {}) => {
+    setErrors(errorsFromServer);
   };
 
   return (
@@ -46,6 +50,7 @@ export const withValidate = (WrappedComponent, {
         errors={errors}
         handleSubmit={handleSubmit}
         onFieldChange={onFieldChange}
+        pushErrorsFromServer={pushErrorsFromServer}
         {...wrappedComponentProps}
       />
     </Fragment>

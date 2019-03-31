@@ -13,6 +13,7 @@
         "config": ["config"],
         "hooks": ["src/hooks"],
         "HOC": ["src/HOC"],
+        "context": ["src/context"],
       }
     },
     "exclude": ["node_modules", "dist"]
