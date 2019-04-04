@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { withValidate } from 'HOC';
 import { _required } from 'utils/validate';
 import { isEmpty } from 'utils/helper';
@@ -38,7 +38,10 @@ const Auth = ({
   onFieldChange,
   handleSubmit,
   pushErrorsFromServer,
-  errors
+  updateAllFields,
+  errors,
+  toggleVisible,
+  testUserData
 }) => {
   const { validateAuthUser, setCurrentUser } = useContext(Authorization);
 
@@ -46,6 +49,10 @@ const Auth = ({
     opening: true,
     error: !isEmpty(errors)
   });
+
+  useEffect(() => {
+    updateAllFields(testUserData);
+  }, [updateAllFields, testUserData]);
 
   const onSubmit = () => {
     const immitationFetchRequest = validateAuthUser(fields);
@@ -79,7 +86,9 @@ const Auth = ({
           onChange={onFieldChange('password')}
         />
         <button type="submit" {...cn('submit')}>Продолжить</button>
-        <p {...cn('notation')}>Регистрация недоступна на текущий момент, но вы <span>можете использовать демо аккаунты</span></p>
+        <p {...cn('notation')}>Регистрация недоступна на текущий момент, но вы
+          <span onClick={toggleVisible} role="none"> можете использовать демо аккаунты</span>
+        </p>
       </Form>
     </div>
   );

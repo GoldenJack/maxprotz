@@ -4,4 +4,36 @@
   justify-content: center;
   height: 100vh;
   background-color: #222;
+
+  &__modal {
+    width: 200px;
+    background: $white;
+    border-radius: 10px;
+  }
+
+  &__attention {
+    text-align: center;
+    line-height: 16px;
+    color: $dark;
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid $main;
+  }
+
+  &__auth-data {
+    border-bottom: 1px solid $main;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  &__label {
+    font-size: 15px;
+    line-height: 20px;
+    color: $dark;
+  }
+
+  &__value {
+    font-size: 15px;
+    line-height: 20px;
+    color: $main;
+  }
 }
