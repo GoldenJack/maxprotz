@@ -12,8 +12,8 @@ import Novetly from 'features/Novetly';
 // import NotFound from 'features/NotFound';
 
 const Routes = () => {
-  const { currentUser, setCurrentUser, validateAuthUser, getUserByName } = useUsers();
-  const auth = getUserByName(localStorage.getItem('user'));
+  const { setCurrentUser, getUserByName, ...props } = useUsers();
+  const auth = JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
     auth && setCurrentUser(auth);
@@ -21,10 +21,9 @@ const Routes = () => {
 
   return (
     <Authorization.Provider value={{
-      currentUser,
       setCurrentUser,
-      validateAuthUser,
-      getUserByName
+      getUserByName,
+      ...props
     }}
     >
       <Route path="/login" component={Login} />

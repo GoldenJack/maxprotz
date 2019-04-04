@@ -53,7 +53,7 @@ const Auth = ({
       pushErrorsFromServer(immitationFetchRequest.errors);
     } else {
       setCurrentUser(immitationFetchRequest.body);
-      localStorage.setItem('user', immitationFetchRequest.body.login);
+      localStorage.setItem('user', JSON.stringify(immitationFetchRequest.body));
       history.push('/');
     }
   };
@@ -79,7 +79,7 @@ const Auth = ({
           onChange={onFieldChange('password')}
         />
         <button type="submit" {...cn('submit')}>Продолжить</button>
-        <p {...cn('notation')}>Если у вас еще нет аккаунта, вы <span>можете завести новый</span></p>
+        <p {...cn('notation')}>Регистрация недоступна на текущий момент, но вы <span>можете использовать демо аккаунты</span></p>
       </Form>
     </div>
   );

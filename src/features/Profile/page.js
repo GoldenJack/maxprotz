@@ -36,21 +36,23 @@ const Profile = ({
   onFieldChange,
   handleSubmit,
   updateAllFields,
-  pushErrorsFromServer,
   errors
 }) => {
   const [edit, setEdit] = useState(false);
-  const { currentUser } = useContext(Authorization);
+  const { currentUser, updateUserProfile } = useContext(Authorization);
   const animation = useAnimation({
     opening: true
   });
 
   useEffect(() => {
-    currentUser && updateAllFields(currentUser);
-  }, [currentUser, updateAllFields]);
+    const userFromLocalStorage = JSON.parse(localStorage.getItem('user'));
+    userFromLocalStorage && updateAllFields(userFromLocalStorage);
+  }, [updateAllFields]);
 
   const onSubmit = () => {
-    console.log('hey');
+    updateUserProfile(fields);
+    setEdit(false);
+    localStorage.setItem('user', JSON.stringify(fields));
   };
 
   return (
@@ -121,6 +123,9 @@ const Profile = ({
               error={errors.birthday}
               onChange={onFieldChange}
             />
+            <div {...cn('buttons')}>
+              {edit && <button {...cn('button')} type="submit">Сохранить</button>}
+            </div>
           </Form>
         </div>
       </div>

@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { isEmpty } from 'utils/helper';
-import { user as userData } from 'data/user';
+import { user as users } from 'data/user';
 
 export const useUsers = () => {
-  const [users, setUsers] = useState(userData);
   const [currentUser, setCurrentUser] = useState({});
 
-  // server imitation
+  // server imitation validation (POST)
   const validateAuthUser = ({ login: loginField, password: passwordField }) => {
     const authUser = users.filter(({ login }) => login === loginField);
     if (isEmpty(authUser)) {
@@ -30,6 +29,11 @@ export const useUsers = () => {
     }
   };
 
+  // server imitation update data (PUT)
+  const updateUserProfile = newData => {
+    setCurrentUser(newData);
+  };
+
   const getUserByName = userName => {
     return users.filter(user => user.login === userName)[0];
   };
@@ -39,5 +43,6 @@ export const useUsers = () => {
     getUserByName,
     setCurrentUser,
     validateAuthUser,
+    updateUserProfile
   };
 };
