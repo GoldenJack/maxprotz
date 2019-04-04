@@ -1,0 +1,29 @@
+.field-view {
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+  padding: 0 10px;
+
+  &--edited {
+    .field-view__input {
+      color: $dark;
+      border-bottom: 1px solid $dark;
+    }
+  }
+
+  &__name {
+    width: 200px;
+  }
+
+  &__input-wrapper {
+    width: 100%;
+  }
+
+  &__input {
+    color: $main;
+    font-family: $ff;
+    border: none;
+    border-bottom: 1px solid transparent;
+    font-size: 16px;
+  }
+}

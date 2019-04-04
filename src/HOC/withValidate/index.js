@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useCallback, useState, Fragment } from 'react';
 import { isEmpty } from 'utils/helper';
 
 export const withValidate = (WrappedComponent, {
@@ -33,6 +33,14 @@ export const withValidate = (WrappedComponent, {
     return Promise.resolve(validateErrors);
   };
 
+  const updateAllFields = useCallback((newFields) => {
+    const updatedFields = {};
+    newFields && Object.keys(newFields).forEach(newFieldName => {
+      updatedFields[newFieldName] = newFields[newFieldName];
+    });
+    setFields(f => ({ ...f, ...updatedFields }));
+  }, []);
+
   const handleSubmit = onSubmit => e => {
     e.preventDefault();
     _validate(onSubmit)
@@ -51,6 +59,7 @@ export const withValidate = (WrappedComponent, {
         handleSubmit={handleSubmit}
         onFieldChange={onFieldChange}
         pushErrorsFromServer={pushErrorsFromServer}
+        updateAllFields={updateAllFields}
         {...wrappedComponentProps}
       />
     </Fragment>

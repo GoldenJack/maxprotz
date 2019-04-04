@@ -4,7 +4,7 @@ import { user as userData } from 'data/user';
 
 export const useUsers = () => {
   const [users, setUsers] = useState(userData);
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState({});
 
   // server imitation
   const validateAuthUser = ({ login: loginField, password: passwordField }) => {

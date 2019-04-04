@@ -10,3 +10,7 @@ button {
 button, a {
   cursor: pointer;
 }
+
+input:disabled {
+  background: transparent;
+}

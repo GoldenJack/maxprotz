@@ -1,0 +1,70 @@
+.profile {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  max-width: 640px;
+  margin: 40px auto;
+
+  &--animation-opening {
+    .profile__head {
+      -webkit-animation: roll-in-left 0.6s ease-out both;
+	            animation: roll-in-left 0.6s ease-out both;
+    }
+    .profile__body {
+      -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	            animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+  }
+
+  &__head {
+    display: flex;
+    margin: 0 auto;
+    width: fit-content;
+    z-index: 9999;
+  }
+
+  &__avatar-wrapper {
+    border-radius: 50%;
+    border: 5px solid #2eb398;
+  }
+
+  &__body {
+    position: relative;
+    padding: 90px 15px 40px;
+    margin-top: -75px;
+    box-shadow: 0px 0 7px 0px #afafaf;
+    border-radius: 10px;
+  }
+
+  &__edit {
+    position: absolute;
+    right: 15px;
+    top: 25px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__edit-icon {
+    width: 18px;
+    margin-right: 8px;
+    @media screen and (max-width: 768px) {
+      width: 24px;
+    }
+  }
+
+  &__edit-text {
+    font-size: 13px;
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__field-view {
+    width: 50%;
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import T from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useAnimation } from 'hooks';
+
 import bemHelper from 'utils/bem-helper';
 import './style.scss';
 
@@ -18,7 +19,8 @@ const defaultProps = {
 };
 
 const Client = ({
-  visible
+  visible,
+  currentUser
 }) => {
   const animation = useAnimation({
     toggle: visible
@@ -33,8 +35,8 @@ const Client = ({
     <div {...cn('', animation)}>
       <div {...cn('caption')}>
         <Link to="/profile" {...cn('name')}>
-          <Avatar size="small" mix={cn('avatar').className} />
-          Евгений Казанцев
+          <Avatar size="small" mix={cn('avatar').className} avatar={currentUser.avatar} />
+          { `${currentUser.firstName} ${currentUser.lastName}` }
         </Link>
       </div>
       <span {...cn('logout')} onClick={logout} role="none">

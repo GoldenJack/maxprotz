@@ -9,14 +9,16 @@ const propTypes = {
   mix: T.string,
   value: T.string,
   type: T.string,
-  label: T.string
+  label: T.string,
+  mixWrapper: T.string
 };
 
 const defaultProps = {
   mix: '',
   value: '',
   type: 'text',
-  label: ''
+  label: '',
+  mixWrapper: ''
 };
 
 const Input = ({
@@ -26,6 +28,8 @@ const Input = ({
   label,
   onChange,
   error,
+  mixWrapper,
+  disabled,
   ...props
 }) => {
   const [focused, setFocused] = useState(false);
@@ -35,7 +39,7 @@ const Input = ({
   };
 
   return (
-    <div {...cn('', { 'focused': focused, 'filled': value !== '', 'has-error': !!error })}>
+    <div {...cn('', { 'focused': focused, 'filled': value !== '', 'has-error': !!error }, mixWrapper)}>
       <div {...cn('label')}>{ label }</div>
       <input
         {...cn('field', '', mix)}
@@ -44,6 +48,7 @@ const Input = ({
         onChange={onFieldChange}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
+        disabled={disabled && 'disabled'}
         {...props}
       />
       <span {...cn('error-msg')}>{error}</span>

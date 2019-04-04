@@ -1,4 +1,5 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useContext } from 'react';
+import { Authorization } from 'context';
 import bemHelper from 'utils/bem-helper';
 import './style.scss';
 
@@ -11,14 +12,20 @@ const cn = bemHelper('header');
 
 const Header = () => {
   const [visible, setVisible] = useState(null);
+  const { currentUser } = useContext(Authorization);
 
   return (
     <div {...cn()}>
       <Wrapper mix={cn('wrapper').className}>
         <Fragment>
           <Logo mix={cn('logo').className} />
-          <Avatar mix={cn('user').className} size="default" onClick={() => setVisible(!visible)} />
-          <Client visible={visible} />
+          <Avatar
+            mix={cn('user').className}
+            avatar={currentUser.avatar}
+            size="default"
+            onClick={() => setVisible(!visible)}
+          />
+          <Client visible={visible} currentUser={currentUser} />
         </Fragment>
       </Wrapper>
     </div>
