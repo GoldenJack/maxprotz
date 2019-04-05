@@ -11,7 +11,7 @@ const propTypes = {
   children: T.object.isRequired,
   // toggleVisible: T.func.isRequired,
   visible: T.bool.isRequired,
-  position: T.string
+  position: T.oneOf(['right', 'center'])
 };
 
 const defaultProps = {

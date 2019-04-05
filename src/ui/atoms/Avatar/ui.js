@@ -7,14 +7,16 @@ const cn = bemHelper('avatar');
 
 const propTypes = {
   mix: T.string,
-  size: T.oneOf(['large', 'default', 'small']),
-  avatar: T.string
+  size: T.oneOf(['large', 'medium', 'default', 'small']),
+  avatar: T.string,
+  onClick: T.func
 };
 
 const defaultProps = {
   mix: '',
   size: 'default',
-  avatar: 'img/user.svg'
+  avatar: 'img/user.svg',
+  onClick: () => {}
 };
 
 const Avatar = ({

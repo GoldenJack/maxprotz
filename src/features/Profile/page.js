@@ -11,6 +11,7 @@ import Wrapper from 'atoms/Wrapper';
 import Button from 'atoms/Button';
 import FieldView from 'molecules/FieldView';
 import Form from 'molecules/Form';
+import Avatars from './ui/organisms/Avatars';
 
 const cn = bemHelper('profile');
 
@@ -40,10 +41,13 @@ const Profile = ({
   errors
 }) => {
   const [edit, setEdit] = useState(false);
+  const [avatarsVisible, setAvatarsVisible] = useState(true);
   const { currentUser, updateUserProfile } = useContext(Authorization);
   const animation = useAnimation({
     opening: true
   });
+
+  const onCloseAvatarsSelect = () => setAvatarsVisible(false);
 
   useEffect(() => {
     const userFromLocalStorage = JSON.parse(localStorage.getItem('user'));
@@ -61,7 +65,18 @@ const Profile = ({
       <div {...cn('', animation)}>
         <div {...cn('head')}>
           <div {...cn('avatar-wrapper')}>
-            <Avatar size="large" mix={cn('avatar').className} avatar={currentUser.avatar} />
+            <Avatar
+              size="large"
+              mix={cn('avatar').className}
+              avatar={currentUser.avatar}
+            />
+            <div
+              {...cn('replace-avatar')}
+              onClick={() => setAvatarsVisible(!avatarsVisible)}
+              role="none"
+            >
+              {avatarsVisible ? 'Отмена' : 'Сменить'}
+            </div>
           </div>
         </div>
         <div {...cn('body')}>
@@ -129,6 +144,10 @@ const Profile = ({
             </div>
           </Form>
         </div>
+        <Avatars
+          visible={avatarsVisible}
+          onClose={onCloseAvatarsSelect}
+        />
       </div>
     </Wrapper>
   );

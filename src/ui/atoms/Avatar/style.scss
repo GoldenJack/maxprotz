@@ -3,13 +3,21 @@
   border-radius: 50%;
   &--large {
     width: 150px;
+    height: 150px;
+  }
+
+  &--medium {
+    width: 100px;
+    height: 100px;
   }
 
   &--default {
     width: 40px;
+    height: 40px;
   }
 
   &--small {
+    width: 20px;
     width: 20px;
   }
 }
