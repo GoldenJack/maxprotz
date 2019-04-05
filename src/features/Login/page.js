@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import bemHelper from 'utils/bem-helper';
 import './style.scss';
 
+import Button from 'atoms/Button';
 import Modal from 'molecules/Modal';
 import Auth from 'organisms/Auth';
 
@@ -38,7 +39,13 @@ const Login = ({
           <p {...cn('label')}>Логин: <span {...cn('value')}>root</span></p>
           <p {...cn('label')}>Пароль: <span {...cn('value')}>123</span></p>
         </div>
-        <span onClick={toggleVisible} role="none">Click</span>
+        <Button
+          mix={cn('button').className}
+          effect={toggleVisible}
+          role="none"
+        >
+          Закрыть
+        </Button>
       </Modal>
     </div>
   );

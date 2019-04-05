@@ -36,4 +36,15 @@
     line-height: 20px;
     color: $main;
   }
+
+  &__button {
+    width: 100%;
+    font-size: 13px;
+    line-height: 15px;
+    border: 1px solid transparent;
+    border-top: none;
+    &:hover {
+      border-color: #446CB3;
+    }
+  }
 }
