@@ -5,6 +5,7 @@ import bemHelper from 'utils/bem-helper';
 import './style.scss';
 
 import Input from 'atoms/Input';
+import Button from 'atoms/Button';
 
 const cn = bemHelper('control');
 
@@ -81,7 +82,13 @@ const Control = ({
           {_renderTags()}
         </div>
         <div {...cn('clear')}>
-          <button {...cn('clear-button')} type="button" onClick={onClearControl}>Очистить</button>
+          <Button
+            mix={cn('clear-button').className}
+            type="button"
+            effect={onClearControl}
+          >
+            Очистить
+          </Button>
         </div>
       </div>
     </div>

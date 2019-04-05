@@ -9,6 +9,7 @@ import bemHelper from 'utils/bem-helper';
 import './style.scss';
 
 import Input from 'atoms/Input';
+import Button from 'atoms/Button';
 import Form from 'molecules/Form';
 
 const cn = bemHelper('auth');
@@ -85,7 +86,7 @@ const Auth = ({
           error={errors.password}
           onChange={onFieldChange('password')}
         />
-        <button type="submit" {...cn('submit')}>Продолжить</button>
+        <Button type="submit" mix={cn('submit').className}>Продолжить</Button>
         <p {...cn('notation')}>Регистрация недоступна на текущий момент, но вы
           <span onClick={toggleVisible} role="none"> можете использовать демо аккаунты</span>
         </p>

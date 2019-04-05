@@ -44,30 +44,8 @@
   }
 
   &__submit {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-
-    padding: 10px 16px;
     margin-left: -25px;
     width: calc(100% + 50px);
-    color: #fff;
-    background-color: #446CB3;
-    font-family: $ff;
-    font-size: 18px;
-    font-weight: 300;
-    border-width: 0;
-    border-radius: 0;
-    text-transform: uppercase;
-    -webkit-transition: all 0.2s cubic-bezier(0.25, 0.5, 0.5, 0.9);
-    -moz-transition: all 0.2s cubic-bezier(0.25, 0.5, 0.5, 0.9);
-    -ms-transition: all 0.2s cubic-bezier(0.25, 0.5, 0.5, 0.9);
-    transition: all 0.2s cubic-bezier(0.25, 0.5, 0.5, 0.9);
-    &:hover {
-      background-color: #222;
-      color: #fff;
-    }
   }
 
   

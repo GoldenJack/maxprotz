@@ -8,6 +8,7 @@ import './style.scss';
 
 import Avatar from 'atoms/Avatar';
 import Wrapper from 'atoms/Wrapper';
+import Button from 'atoms/Button';
 import FieldView from 'molecules/FieldView';
 import Form from 'molecules/Form';
 
@@ -124,7 +125,7 @@ const Profile = ({
               onChange={onFieldChange}
             />
             <div {...cn('buttons')}>
-              {edit && <button {...cn('button')} type="submit">Сохранить</button>}
+              {edit && <Button mix={cn('button').className} type="submit">Сохранить</Button>}
             </div>
           </Form>
         </div>
