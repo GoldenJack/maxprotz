@@ -12,17 +12,10 @@ import Novetly from 'features/Novetly';
 // import NotFound from 'features/NotFound';
 
 const Routes = () => {
-  const { setCurrentUser, getUserByName, ...props } = useUsers();
-  const auth = JSON.parse(localStorage.getItem('user'));
-
-  useEffect(() => {
-    auth && setCurrentUser(auth);
-  }, [auth, setCurrentUser]);
+  const { ...props } = useUsers();
 
   return (
     <Authorization.Provider value={{
-      setCurrentUser,
-      getUserByName,
       ...props
     }}
     >

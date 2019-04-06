@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import { Authorization } from 'context';
 import bemHelper from 'utils/bem-helper';
 import './style.scss';
 
@@ -13,6 +14,7 @@ const Avatars = ({
   onClose
 }) => {
   const [currentAvatar, setCurrentAvatar] = useState('');
+  const { updateUserProfile, getUserFromLocalStorage } = useContext(Authorization);
 
   const avatarsOptions = [
     'img/avatars/3d.png',
@@ -23,13 +25,11 @@ const Avatars = ({
   ];
 
   useEffect(() => {
-    const userFromLocalStorage = JSON.parse(localStorage.getItem('user'));
-    setCurrentAvatar(userFromLocalStorage.avatar);
-  }, []);
+    setCurrentAvatar(getUserFromLocalStorage().avatar);
+  }, [getUserFromLocalStorage]);
 
   const setAvatar = () => {
-    const userFromLocalStorage = JSON.parse(localStorage.getItem('user'));
-    localStorage.setItem('user', JSON.stringify({ ...userFromLocalStorage, avatar: currentAvatar }));
+    updateUserProfile({ ...getUserFromLocalStorage(), avatar: currentAvatar });
   };
 
   return (

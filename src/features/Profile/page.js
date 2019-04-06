@@ -41,8 +41,8 @@ const Profile = ({
   errors
 }) => {
   const [edit, setEdit] = useState(false);
-  const [avatarsVisible, setAvatarsVisible] = useState(true);
-  const { currentUser, updateUserProfile } = useContext(Authorization);
+  const [avatarsVisible, setAvatarsVisible] = useState(false);
+  const { currentUser, updateUserProfile, getUserFromLocalStorage } = useContext(Authorization);
   const animation = useAnimation({
     opening: true
   });
@@ -50,14 +50,13 @@ const Profile = ({
   const onCloseAvatarsSelect = () => setAvatarsVisible(false);
 
   useEffect(() => {
-    const userFromLocalStorage = JSON.parse(localStorage.getItem('user'));
-    userFromLocalStorage && updateAllFields(userFromLocalStorage);
-  }, [updateAllFields]);
+    const auth = getUserFromLocalStorage();
+    auth && updateAllFields(auth);
+  }, [updateAllFields, getUserFromLocalStorage]);
 
   const onSubmit = () => {
     updateUserProfile(fields);
     setEdit(false);
-    localStorage.setItem('user', JSON.stringify(fields));
   };
 
   return (

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { isEmpty } from 'utils/helper';
 import { user as users } from 'data/user';
 
@@ -29,20 +29,42 @@ export const useUsers = () => {
     }
   };
 
-  // server imitation update data (PUT)
-  const updateUserProfile = newData => {
-    setCurrentUser(newData);
-  };
-
   const getUserByName = userName => {
     return users.filter(user => user.login === userName)[0];
   };
+
+  const getUserFromLocalStorage = () => {
+    return JSON.parse(localStorage.getItem('user'));
+  };
+
+  const setUserToLocalStorage = newCurrentUserData => {
+    localStorage.setItem('user', JSON.stringify(newCurrentUserData));
+  };
+
+  // server imitation update data (PUT)
+  const updateUserProfile = useCallback(newCurrentUserData => {
+    const auth = getUserFromLocalStorage();
+    if (newCurrentUserData) {
+      setCurrentUser(newCurrentUserData);
+      setUserToLocalStorage(newCurrentUserData);
+    } else if (auth) {
+      setCurrentUser(auth);
+      setUserToLocalStorage(auth);
+    } else {
+      setCurrentUser({});
+    }
+  }, []);
+
+  useEffect(() => {
+    updateUserProfile();
+  }, [updateUserProfile]);
 
   return {
     currentUser,
     getUserByName,
     setCurrentUser,
     validateAuthUser,
-    updateUserProfile
+    updateUserProfile,
+    getUserFromLocalStorage
   };
 };
