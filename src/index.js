@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { Authorization } from 'context';
@@ -9,7 +9,6 @@ import Home from 'features/Home';
 import Login from 'features/Login';
 import Profile from 'features/Profile';
 import Novetly from 'features/Novetly';
-// import NotFound from 'features/NotFound';
 
 const Routes = () => {
   const { ...props } = useUsers();
@@ -24,7 +23,6 @@ const Routes = () => {
         <Route exact path="/" component={Home} />
         <Route path="/profile" component={Profile} />
         <Route path="/news/:id" component={Novetly} />
-        {/* <Route component={NotFound} /> */}
       </Layout>
     </Authorization.Provider>
   );

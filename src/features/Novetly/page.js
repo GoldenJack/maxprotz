@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import T from 'prop-types';
 import { useNovetly, useAnimation } from 'hooks';
+import { Link } from 'react-router-dom';
 import bemHelper from 'utils/bem-helper';
 import './style.scss';
 
@@ -25,6 +26,10 @@ const Novetly = ({
     <Fragment>
       <Banner mix={cn('banner').className} title={title} image={imageUrl} />
       <Wrapper mix={cn('wrapper').className}>
+        <Link to="/" {...cn('back-link')}>
+          <img {...cn('back-icon')} src="img/back.svg" alt="/" />
+          <span {...cn('back-text')}>Вернуться к новостям</span>
+        </Link>
         <div {...cn('', animation)}>
           <img {...cn('image')} src={imageUrl} alt="/" align="left" />
           {/* eslint-disable-next-line react/no-danger */}

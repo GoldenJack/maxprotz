@@ -30,6 +30,7 @@ const Avatars = ({
 
   const setAvatar = () => {
     updateUserProfile({ ...getUserFromLocalStorage(), avatar: currentAvatar });
+    onClose();
   };
 
   return (

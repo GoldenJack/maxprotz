@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import T from 'prop-types';
+import React, { Fragment, useState } from 'react';
 import { Redirect } from 'react-router-dom';
+import T from 'prop-types';
 
 import Basic from 'templates/Basic';
 
@@ -11,11 +11,13 @@ const propTypes = {
 const Layout = ({
   children
 }) => {
-  const checkLocalStorage = localStorage.getItem('user');
+  const [auth, setAuth] = useState(false);
+  const user = localStorage.getItem('user');
+  !auth && user && setAuth(true);
 
   return (
     <Fragment>
-      { checkLocalStorage ? (
+      { auth ? (
         <Basic>
           {children}
         </Basic>

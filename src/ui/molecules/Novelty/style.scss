@@ -3,6 +3,10 @@
   border: 1px solid #ebebeb;
   border-bottom: 5px solid #2eb398;
   background-color:  #ffffff;
+  transition: .3s ease-in-out;
+  &:hover {
+    box-shadow: 5px -3px 36px 15px #d4d4d4;
+  }
 
   &__image {
     display: block;

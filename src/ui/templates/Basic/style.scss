@@ -1,9 +1,14 @@
 .theme {
+  position: relative;
   overflow: hidden;
   min-height: 100vh;
   
   &--basic {
     background: #f3f3f3;
     min-height: 100vh;
+  }
+
+  &__body {
+    padding-top: 50px;
   }
 }

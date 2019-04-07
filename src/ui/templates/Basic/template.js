@@ -19,7 +19,9 @@ const Basic = ({
   return (
     <div {...cn()}>
       <Header />
-      {children}
+      <div {...cn('body')}>
+        {children}
+      </div>
     </div>
   );
 };

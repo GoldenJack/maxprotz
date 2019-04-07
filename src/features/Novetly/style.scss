@@ -5,6 +5,24 @@
 	          animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   }
 
+  &__back-link {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $main;
+  }
+
+  &__back-icon {
+    width: 24px;
+  }
+
+  &__back-text {
+    font-size: 24px;
+    line-height: 24px;
+    margin-left: 12px;
+  }
+
   &__wrapper {
     padding: 40px 15px;
   }
