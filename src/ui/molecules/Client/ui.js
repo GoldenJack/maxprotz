@@ -11,11 +11,13 @@ import Avatar from 'atoms/Avatar';
 const cn = bemHelper('client');
 
 const propTypes = {
-  visible: T.bool
+  visible: T.bool,
+  currentUser: T.object
 };
 
 const defaultProps = {
-  visible: null
+  visible: null,
+  currentUser: {}
 };
 
 const Client = ({

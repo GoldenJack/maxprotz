@@ -7,7 +7,10 @@ const cn = bemHelper('wrapper');
 
 const propTypes = {
   mix: T.string,
-  children: T.object.isRequired
+  children: T.oneOfType([
+    T.object,
+    T.array
+  ]).isRequired
 };
 
 const defaultProps = {

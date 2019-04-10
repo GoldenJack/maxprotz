@@ -7,6 +7,27 @@ import Input from 'atoms/Input';
 
 const cn = bemHelper('field-view');
 
+const propTypes = {
+  mix: T.string,
+  value: T.string,
+  type: T.string,
+  label: T.string,
+  onChange: T.func.isRequired,
+  error: T.string,
+  edit: T.bool,
+  name: T.string
+};
+
+const defaultProps = {
+  mix: '',
+  value: '',
+  type: 'text',
+  label: '',
+  error: '',
+  edit: false,
+  name: ''
+};
+
 const FieldView = ({
   mix,
   edit,
@@ -33,5 +54,8 @@ const FieldView = ({
     </div>
   );
 };
+
+FieldView.propTypes = propTypes;
+FieldView.defaultProps = defaultProps;
 
 export default FieldView;

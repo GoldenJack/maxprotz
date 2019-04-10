@@ -15,7 +15,16 @@ import Form from 'molecules/Form';
 const cn = bemHelper('auth');
 
 const propTypes = {
-  mix: T.string
+  mix: T.string,
+  history: T.object.isRequired,
+  fields: T.object.isRequired,
+  onFieldChange: T.func.isRequired,
+  handleSubmit: T.func.isRequired,
+  pushErrorsFromServer: T.func.isRequired,
+  updateAllFields: T.func.isRequired,
+  errors: T.object.isRequired,
+  toggleVisible: T.func.isRequired,
+  testUserData: T.object.isRequired
 };
 
 const defaultProps = {

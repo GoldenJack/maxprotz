@@ -8,8 +8,10 @@ const cn = bemHelper('modal');
 
 const propTypes = {
   mix: T.string,
-  children: T.object.isRequired,
-  // toggleVisible: T.func.isRequired,
+  children: T.oneOfType([
+    T.object,
+    T.array
+  ]).isRequired,
   visible: T.bool.isRequired,
   position: T.oneOf(['right', 'center'])
 };

@@ -10,7 +10,10 @@ const propTypes = {
   value: T.string,
   type: T.string,
   label: T.string,
-  mixWrapper: T.string
+  mixWrapper: T.string,
+  onChange: T.func.isRequired,
+  error: T.string,
+  disabled: T.bool
 };
 
 const defaultProps = {
@@ -18,7 +21,9 @@ const defaultProps = {
   value: '',
   type: 'text',
   label: '',
-  mixWrapper: ''
+  mixWrapper: '',
+  error: '',
+  disabled: false
 };
 
 const Input = ({

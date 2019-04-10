@@ -8,6 +8,10 @@ const cn = bemHelper('novetly');
 
 const propTypes = {
   mix: T.string,
+  id: T.oneOfType([
+    T.number,
+    T.string
+  ]),
   title: T.string.isRequired,
   shortDescription: T.string.isRequired,
   originalUrl: T.string.isRequired,
@@ -16,7 +20,8 @@ const propTypes = {
 
 const defaultProps = {
   mix: '',
-  imageUrl: ''
+  id: '',
+  imageUrl: '',
 };
 
 const Novetly = ({

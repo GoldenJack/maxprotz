@@ -5,7 +5,9 @@ import bemHelper from 'utils/bem-helper';
 const cn = bemHelper('form');
 
 const propTypes = {
-  mix: T.string
+  mix: T.string,
+  children: T.array.isRequired,
+  onSubmit: T.func.isRequired
 };
 
 const defaultProps = {

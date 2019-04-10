@@ -30,6 +30,7 @@ const Button = ({
   children
 }) => {
   return (
+    // eslint-disable-next-line react/button-has-type
     <button
       {...cn('', style, mix)}
       type={type}

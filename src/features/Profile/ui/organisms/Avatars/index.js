@@ -10,6 +10,16 @@ import Modal from 'molecules/Modal';
 
 const cn = bemHelper('avatars');
 
+const propTypes = {
+  visible: T.bool,
+  onClose: T.func
+};
+
+const defaultProps = {
+  visible: false,
+  onClose: () => {}
+};
+
 const Avatars = ({
   visible,
   onClose
@@ -61,5 +71,8 @@ const Avatars = ({
     </Modal>
   );
 };
+
+Avatars.propTypes = propTypes;
+Avatars.defaultProps = defaultProps;
 
 export default Avatars;

@@ -1,12 +1,20 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react/jsx-indent */
 import React from 'react';
-// import T from 'prop-types';
+import T from 'prop-types';
 import { Link } from 'react-router-dom';
 import bemHelper from 'utils/bem-helper';
 import './style.scss';
 
 const cn = bemHelper('logo');
+
+const propTypes = {
+  mix: T.string
+};
+
+const defaultProps = {
+  mix: ''
+};
 
 const Logo = mix => (
   <Link to="/" {...cn('', '', mix)}>
@@ -69,5 +77,8 @@ const Logo = mix => (
     <span {...cn('caption')}>max pro news</span>
   </Link>
 );
+
+Logo.propTypes = propTypes;
+Logo.defaultProps = defaultProps;
 
 export default Logo;
