@@ -27,7 +27,6 @@ const Home = () => {
           options={masonryOptions}
           disableImagesLoaded={false}
           updateOnEachImageLoad={false}
-          // imagesLoadedOptions={imagesLoadedOptions}
         >
           {news.map(novetly => (
             <Novetly mix={cn('novetly').className} key={novetly.title} {...novetly} />

@@ -1,68 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Тестовой задание №1 (2)](https://hackmd.io/s/BJWYLsmD4).
 
-## Available Scripts
+## О себе
 
-In the project directory, you can run:
+- Евгений Казанцев, 23 года, Кузнецк
+- Опыт работы с React: 4 месяца
+- Опыт frontend (верстальщик/jquery/vanila): 4 года
 
-### `npm start`
+## Чек-лист решения (реализовано)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [x] Страница авторизации "/login"
+- [x] Главная страница "/" (выполняет роль страницы новостей)
+- [x] Страница профиля "/profile"
+- [x] Страница новости "/news/:id"
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Бонус
 
-### `npm test`
+- [x] Работа реализована на React hooks
+- [x] В качестве замены redux используется useContext для работы с глобальными данными
+- [x] Написаны кастомные хуки для иммитации работы с данными
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Подробнее о деталях
 
-### `npm run build`
+1. В приложение нельзя попасть, не пройдя авторизацию. 
+2. На странице авторизации выполнена как клиентская валидация (проверка на обязательность заполнения полей), так и серверная иммитация. Выводятся предупреждения в случае неправильности заполненных данных.
+3. Добавлена подсказка с фейковыми данными, возможность автозаполнения формы по клику на блок с данными
+4. Данные пользователя заносятся в context приложения и localStorage, между ними установлена взаимосвязь
+5. На странице новостей реализована фильтрация новостей по тэгам. Поиск новостей по заголовку, очистка фильтра и строки запроса. Для этого написан кастомный хук useNews
+6. На странице профиля доступно редактирование информации о пользователе. Благодаря хуку useUsers и 4 пункту данные не потеряются даже после перезагрузки страницы. Данные обновляются как в глобальном контексте, так и в localStorage. Вернутся к исходным данным можно лишь выйдя из приложения (реализован разавторизация пользователя)
+7. Можно сменить автар ;)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Запуск проекта
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Стандартные вещи для запуска: 
+1. `npm install`
+2. `npm run dev` or `npm run build`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ВАЖНО
 
-### `npm run eject`
+Реализация некоторых вещей, таких как, валидация данных, хранение данных пользователя в локальном хранилеще и кастомных хуков крайне сомнительна. Часть вещей реализовано подобным образом только из-за отсутствия полноценного серверного api.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Методология, подход, мелочи
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Использовалась БЭМ методология, [Atomic Design](http://atomicdesign.bradfrost.com/chapter-2/). 
+Все иконки были взяты с [flaticon](http://flaticon.com/).
+Большая часть анимаций сгенерирована с помощью [Animista](http://animista.net). Также использовался компонент [react-masonry-component](https://github.com/eiriklv/react-masonry-component). 

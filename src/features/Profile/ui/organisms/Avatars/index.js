@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import T from 'prop-types';
 import { Authorization } from 'context';
 import bemHelper from 'utils/bem-helper';
 import './style.scss';

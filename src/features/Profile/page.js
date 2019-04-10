@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import T from 'prop-types';
 import { Authorization } from 'context';
 import { useAnimation } from 'hooks';
 import { withValidate } from 'HOC';
@@ -14,6 +15,14 @@ import Form from 'molecules/Form';
 import Avatars from './ui/organisms/Avatars';
 
 const cn = bemHelper('profile');
+
+const propTypes = {
+  fields: T.object.isRequired,
+  onFieldChange: T.func.isRequired,
+  handleSubmit: T.func.isRequired,
+  updateAllFields: T.func.isRequired,
+  errors: T.object.isRequired
+};
 
 const validateFields = {
   login: [_required],
@@ -151,5 +160,7 @@ const Profile = ({
     </Wrapper>
   );
 };
+
+Profile.propTypes = propTypes;
 
 export default withValidate(Profile, { stateFields, validateFields });

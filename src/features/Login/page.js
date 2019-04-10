@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import T from 'prop-types';
 import bemHelper from 'utils/bem-helper';
 import './style.scss';
 
@@ -8,6 +9,9 @@ import Auth from 'organisms/Auth';
 
 const cn = bemHelper('login');
 
+const propTypes = {
+  history: T.object.isRequired
+};
 
 const Login = ({
   history
@@ -50,5 +54,7 @@ const Login = ({
     </div>
   );
 };
+
+Login.propTypes = propTypes;
 
 export default Login;
